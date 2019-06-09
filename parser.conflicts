@@ -1,0 +1,184 @@
+
+** Conflict (shift/reduce) in state 51.
+** Tokens involved: OROP ANDOP
+** The following explanations concentrate on token OROP.
+** This state is reached from toplevel after reading:
+
+LET ID EQ Expr IN Expr 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+toplevel 
+Expr SEMISEMI 
+(?)
+
+** In state 51, looking ahead at OROP, shifting is permitted
+** because of the following sub-derivation:
+
+LetExpr 
+LET ID EQ Expr IN Expr 
+                  AndOrOpExpr 
+                  Expr . OROP Expr 
+
+** In state 51, looking ahead at OROP, reducing production
+** LetExpr -> LET ID EQ Expr IN Expr 
+** is permitted because of the following sub-derivation:
+
+AndOrOpExpr 
+Expr OROP Expr // lookahead token appears
+LetExpr // lookahead token is inherited
+LET ID EQ Expr IN Expr . 
+
+** Conflict (shift/reduce) in state 46.
+** Tokens involved: OROP ANDOP
+** The following explanations concentrate on token OROP.
+** This state is reached from toplevel after reading:
+
+LET REC ID EQ FUN ID RARROW Expr IN Expr 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+toplevel 
+Expr SEMISEMI 
+(?)
+
+** In state 46, looking ahead at OROP, shifting is permitted
+** because of the following sub-derivation:
+
+LetRecExpr 
+LET REC ID EQ FUN ID RARROW Expr IN Expr 
+                                    AndOrOpExpr 
+                                    Expr . OROP Expr 
+
+** In state 46, looking ahead at OROP, reducing production
+** LetRecExpr -> LET REC ID EQ FUN ID RARROW Expr IN Expr 
+** is permitted because of the following sub-derivation:
+
+AndOrOpExpr 
+Expr OROP Expr // lookahead token appears
+LetRecExpr // lookahead token is inherited
+LET REC ID EQ FUN ID RARROW Expr IN Expr . 
+
+** Conflict (shift/reduce) in state 43.
+** Tokens involved: OROP ANDOP
+** The following explanations concentrate on token OROP.
+** This state is reached from toplevel after reading:
+
+IF Expr THEN Expr ELSE Expr 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+toplevel 
+Expr SEMISEMI 
+(?)
+
+** In state 43, looking ahead at OROP, shifting is permitted
+** because of the following sub-derivation:
+
+IfExpr 
+IF Expr THEN Expr ELSE Expr 
+                       AndOrOpExpr 
+                       Expr . OROP Expr 
+
+** In state 43, looking ahead at OROP, reducing production
+** IfExpr -> IF Expr THEN Expr ELSE Expr 
+** is permitted because of the following sub-derivation:
+
+AndOrOpExpr 
+Expr OROP Expr // lookahead token appears
+IfExpr // lookahead token is inherited
+IF Expr THEN Expr ELSE Expr . 
+
+** Conflict (shift/reduce) in state 37.
+** Tokens involved: OROP ANDOP
+** The following explanations concentrate on token OROP.
+** This state is reached from toplevel after reading:
+
+Expr ANDOP Expr 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+toplevel 
+Expr SEMISEMI 
+AndOrOpExpr 
+(?)
+
+** In state 37, looking ahead at OROP, reducing production
+** AndOrOpExpr -> Expr ANDOP Expr 
+** is permitted because of the following sub-derivation:
+
+Expr OROP Expr // lookahead token appears
+AndOrOpExpr // lookahead token is inherited
+Expr ANDOP Expr . 
+
+** In state 37, looking ahead at OROP, shifting is permitted
+** because of the following sub-derivation:
+
+Expr ANDOP Expr 
+           AndOrOpExpr 
+           Expr . OROP Expr 
+
+** Conflict (shift/reduce) in state 35.
+** Tokens involved: OROP ANDOP
+** The following explanations concentrate on token OROP.
+** This state is reached from toplevel after reading:
+
+Expr OROP Expr 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+toplevel 
+Expr SEMISEMI 
+AndOrOpExpr 
+(?)
+
+** In state 35, looking ahead at OROP, shifting is permitted
+** because of the following sub-derivation:
+
+Expr OROP Expr 
+          AndOrOpExpr 
+          Expr . OROP Expr 
+
+** In state 35, looking ahead at OROP, reducing production
+** AndOrOpExpr -> Expr OROP Expr 
+** is permitted because of the following sub-derivation:
+
+Expr OROP Expr // lookahead token appears
+AndOrOpExpr // lookahead token is inherited
+Expr OROP Expr . 
+
+** Conflict (shift/reduce) in state 33.
+** Tokens involved: OROP ANDOP
+** The following explanations concentrate on token OROP.
+** This state is reached from toplevel after reading:
+
+FUN ID RARROW Expr 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+toplevel 
+Expr SEMISEMI 
+(?)
+
+** In state 33, looking ahead at OROP, shifting is permitted
+** because of the following sub-derivation:
+
+FunExpr 
+FUN ID RARROW Expr 
+              AndOrOpExpr 
+              Expr . OROP Expr 
+
+** In state 33, looking ahead at OROP, reducing production
+** FunExpr -> FUN ID RARROW Expr 
+** is permitted because of the following sub-derivation:
+
+AndOrOpExpr 
+Expr OROP Expr // lookahead token appears
+FunExpr // lookahead token is inherited
+FUN ID RARROW Expr . 
